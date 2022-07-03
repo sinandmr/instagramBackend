@@ -5,7 +5,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import errorHandler from './utils/errorHandler.js';
 // Routes
-import mainRoute from './routes/mainRoute.js';
+import userRoute from './routes/userRoute.js';
 
 const app = express();
 app.use(cors());
@@ -23,14 +23,14 @@ mongoose.connect(DB, () => {
 // Middlewares
 app.use(express.json());
 
-app.use('/', mainRoute);
+app.use('/', userRoute);
 
 app.use(errorHandler);
 
 app.all('*', (req, res) => {
-  res.json({
+  res.status(400).json({
     status: 'fail',
-    message: 'Böyle bir endpoint yok.',
+    message: 'Böyle bir endpoint yok.a',
   });
 });
 // Server start

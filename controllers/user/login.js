@@ -1,5 +1,5 @@
-import User from '../models/User.js';
-import asyncHandler from '../utils/asyncHandler.js';
+import User from '../../models/User.js';
+import asyncHandler from '../../utils/asyncHandler.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 

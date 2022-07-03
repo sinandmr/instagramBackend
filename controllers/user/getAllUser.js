@@ -1,5 +1,5 @@
-import User from '../models/User.js';
-import asyncHandler from '../utils/asyncHandler.js';
+import User from '../../models/User.js';
+import asyncHandler from '../../utils/asyncHandler.js';
 
 export default asyncHandler(async (req, res) => {
   try {
