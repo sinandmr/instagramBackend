@@ -30,9 +30,9 @@ app.use('/', postRoute);
 app.use(errorHandler);
 
 app.all('*', (req, res) => {
-  res.status(400).json({
+  res.status(404).json({
     status: 'fail',
-    message: 'Böyle bir endpoint yok.a',
+    message: 'Bu endpoint kullanılmıyor',
   });
 });
 // Server start

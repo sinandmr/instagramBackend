@@ -9,7 +9,7 @@ export default (req, res, next) => {
   } catch (error) {
     return res.status(401).send({
       status: 'fail',
-      message: 'Auth Fail',
+      message: 'Authentication başarısız',
     });
   }
 };
