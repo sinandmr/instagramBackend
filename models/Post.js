@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const postSchema = new Schema({
   username: {
     type: String,
-    unique: true,
     required: [true, 'Kullanıcı Adı zorunludur'],
   },
   numberOfLike: Number,

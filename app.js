@@ -6,6 +6,7 @@ import cors from 'cors';
 import errorHandler from './utils/errorHandler.js';
 // Routes
 import userRoute from './routes/userRoute.js';
+import postRoute from './routes/postRoute.js';
 
 const app = express();
 app.use(cors());
@@ -24,6 +25,7 @@ mongoose.connect(DB, () => {
 app.use(express.json());
 
 app.use('/', userRoute);
+app.use('/', postRoute);
 
 app.use(errorHandler);
 
