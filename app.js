@@ -26,15 +26,14 @@ app.use(express.json());
 
 app.use('/', userRoute);
 app.use('/', postRoute);
-
 app.use(errorHandler);
-
 app.all('*', (req, res) => {
   res.status(404).json({
     status: 'fail',
     message: 'Bu endpoint kullanılmıyor',
   });
 });
+
 // Server start
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

@@ -1,6 +1,7 @@
 export default (err, req, res, next) => {
   res.status(400).json({
-    source: 'errorHandler.js',
+    status: 'fail',
     message: err,
+    source: 'errorHandler.js',
   });
 };

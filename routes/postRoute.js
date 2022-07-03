@@ -3,10 +3,10 @@ const router = express.Router();
 
 // Functions
 import checkAuth from '../middlewares/checkAuth.js';
-import createPost from '../controllers/post/createPost.js';
-import getAllPost from '../controllers/post/getAllPost.js';
-import likePost from '../controllers/post/likePost.js';
-import deletePost from '../controllers/post/deletePost.js';
+import createPost from '../services/post/createPost.js';
+import getAllPost from '../services/post/getAllPost.js';
+import likePost from '../services/post/likePost.js';
+import deletePost from '../services/post/deletePost.js';
 
 router.route('/post').post(checkAuth, createPost);
 router.route('/post').get(checkAuth, getAllPost);

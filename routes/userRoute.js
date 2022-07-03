@@ -3,13 +3,13 @@ const router = express.Router();
 
 // Functions
 import checkAuth from '../middlewares/checkAuth.js';
-import login from '../controllers/user/login.js';
-import register from '../controllers/user/register.js';
-import getUser from '../controllers/user/getUser.js';
-import getAllUser from '../controllers/user/getAllUser.js';
-import createFollowReq from '../controllers/user/createFollowReq.js';
-import acceptFollowReq from '../controllers/user/acceptFollowReq.js';
-import deleteFollowReq from '../controllers/user/deleteFollowReq.js';
+import login from '../services/user/login.js';
+import register from '../services/user/register.js';
+import getUser from '../services/user/getUser.js';
+import getAllUser from '../services/user/getAllUser.js';
+import createFollowReq from '../services/user/createFollowReq.js';
+import acceptFollowReq from '../services/user/acceptFollowReq.js';
+import deleteFollowReq from '../services/user/deleteFollowReq.js';
 
 router.route('/user/:id').get(checkAuth, getUser);
 router.route('/user/follow').post(checkAuth, createFollowReq);
