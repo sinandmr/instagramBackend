@@ -4,6 +4,9 @@ import asyncHandler from '../../utils/asyncHandler.js';
 export default asyncHandler(async (req, res) => {
   try {
     const { requestUser, currentUser } = req.body;
+
+    if (currentUser !== req.userData.username) throw 'Yetkisiz İşlem';
+
     const current = await User.findOne({
       username: currentUser,
     });

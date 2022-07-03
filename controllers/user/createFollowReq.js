@@ -5,6 +5,8 @@ export default asyncHandler(async (req, res) => {
   try {
     const { senderUsername, receiverUsername } = req.body;
 
+    if (senderUsername !== req.userData.username) throw 'Yetkisiz İşlem';
+
     if (senderUsername === receiverUsername)
       throw 'Kendi hesabınızı takip edemezsiniz.';
 
@@ -26,6 +28,7 @@ export default asyncHandler(async (req, res) => {
     res.status(400).json({
       status: 'success',
       message: 'Takip isteği gönderildi',
+      aa: req.userData,
     });
   } catch (err) {
     res.status(400).json({
