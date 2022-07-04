@@ -17,13 +17,7 @@ export default asyncHandler(async (req, res) => {
       username,
     });
 
-    if (!user) {
-      return res.status(400).json({
-        status: 'fail',
-        message: 'Kullanıcı bulunamadı.',
-      });
-    }
-
+    if (!user) throw 'Kullanıcı bulunamadı';
     const isMatch = await bcrypt.compare(pass.toString(), user.password);
 
     if (isMatch) {
@@ -44,16 +38,11 @@ export default asyncHandler(async (req, res) => {
         message: 'Giriş yapıldı',
         token,
       });
-    } else {
-      return res.status(403).json({
-        status: 'fail',
-        message: 'Şifre Yanlış',
-      });
-    }
+    } else throw 'Şifre yanlış';
   } catch (err) {
     res.status(400).json({
       status: 'fail',
-      message: err.message,
+      message: err,
     });
   }
 });
