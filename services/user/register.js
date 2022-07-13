@@ -13,7 +13,7 @@ export default asyncHandler(async (req, res) => {
     });
     res.status(201).json({
       status: 'success',
-      newUser,
+      message: 'User created',
     });
   } catch (err) {
     res.status(400).json({

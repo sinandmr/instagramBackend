@@ -3,11 +3,10 @@ import asyncHandler from '../../utils/asyncHandler.js';
 
 export default asyncHandler(async (req, res) => {
   try {
-    const { username } = req.body;
-
-    if (username !== req.userData.username) throw 'Yetkisiz işlem';
-
-    const post = await Post.create(req.body);
+    const post = await Post.create({
+      ...req.body,
+      username: req.userData.username,
+    });
 
     if (!post) throw 'Gönderi paylaşılamadı.';
 
