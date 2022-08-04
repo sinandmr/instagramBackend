@@ -26,7 +26,9 @@ app.use(express.json());
 
 app.use('/', userRoute);
 app.use('/', postRoute);
+
 app.use(errorHandler);
+
 app.all('*', (req, res) => {
   res.status(404).json({
     status: 'fail',
@@ -36,6 +38,7 @@ app.all('*', (req, res) => {
 
 // Server start
 const port = process.env.SERVER_PORT || 3000;
+
 app.listen(port, () => {
   console.log(`Server On | http://localhost:${port}`);
 });

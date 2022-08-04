@@ -16,6 +16,9 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  confirmationCode: {
+    type: Number,
+  },
   name: {
     type: String,
     required: true,
