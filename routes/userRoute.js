@@ -18,7 +18,7 @@ router.route('/user/follow').post(checkAuth, createFollowReq);
 router.route('/user/follow').put(checkAuth, acceptFollowReq);
 router.route('/user/follow').delete(checkAuth, deleteFollowReq);
 
-router.route('/user').get(getAllUser);
+router.route('/user').get(checkAuth, getAllUser);
 router.route('/register').post(register);
 router.route('/login').post(login);
 router.route('/password/confirm').post(mailConfirmationCode);
